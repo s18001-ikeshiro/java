@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class PrimeNumberCalculator {
-	public static List<Integer> calcTo(int maxNumber) {
+	public List<Integer> calcTo(int maxNumber) {
 		if (maxNumber < 2) {
 			return Collections.emptyList();
 		}
@@ -16,8 +16,7 @@ public class PrimeNumberCalculator {
 		return primeNumbers;
 	}
 
-	
-	private static boolean isPrimeNumber(int testNumber) {
+	private boolean isPrimeNumber(int testNumber) {
 		if (testNumber < 2) {
 			return false;
 		} else if (testNumber == 2) {
@@ -25,11 +24,13 @@ public class PrimeNumberCalculator {
 		} else if (testNumber % 2 == 0) {
 			return false;
 		}
-		for (int i = 3; i < testNumber; i = i + 2) {
+		
+		for (int i = 2; i < testNumber; i++) {
 			if (testNumber % i == 0) {
-				return false;
+				return false; 
 			}
 		}
 		return true;
+		 
 	}
 }
