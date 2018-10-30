@@ -1,0 +1,20 @@
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+public class Main {
+	private static final Log log = LogFactory.getLog(Main.class);
+
+	public static void main(String[] args) {
+		System.out.println(String.format("1 / 0 = %d", divide(1, 0)));
+	}
+
+	private static int divide(Integer a, Integer b) {
+		try {
+			return a / b;
+		} catch (Exception e) {
+			log.error(String.format("不正な引数が渡されました！　0を返却します: a=%d, b=%d", a, b), e);
+			return 0;
+		}
+	}
+}
+
